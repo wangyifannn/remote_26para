@@ -56,7 +56,14 @@
             }
             h1.title.header {
                 font-size: 25px;
-                margin-left: 58px;
+                /*margin-left: 58px;*/
+            }
+            .row {
+                width: 100%;
+                height: auto;
+            }
+            .ll {
+                display: none;
             }
         }
         
@@ -78,13 +85,13 @@
     <header class="bar bar-nav header">
         <h1 class='title header'>动力总成数据</h1>
         <div id="lanauage_box">
-            语言：
+            <span class="ll">语言：</span>
             <!--<select name="" id="lanauage" onchange="changelag()">-->
             <!--<option value="中文">中文</option>
 			<option value="英文">英文</option>-->
             <!--</select>-->
-            <input type="radio" name="lag" value="中文" class="lag" checked="">中文
-            <input type="radio" name="lag" value="英文" class="lag" checked="">英文
+            <input type="radio" name="lag" value="中文" class="lag" checked="">中
+            <input type="radio" name="lag" value="英文" class="lag" checked="">英
         </div>
 
     </header>
