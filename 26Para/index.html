@@ -29,28 +29,25 @@
         
         #lanauage_box {
             position: absolute;
-            top: 3px;
-            left: 3px;
+            top: 13px;
+            left: 15px;
             font-size: 18px;
-            /*padding: 10px 10px;*/
         }
         
-        #lanauage {
-            background: skyblue;
-            padding: 8px 10px;
-            border-radius: 10px;
+        #lanauage_box input {
+            cursor: pointer;
         }
         
         .row {
             width: 50%;
             height: auto;
             margin: 0px auto;
-            border: 1px solid grey;
+            border: 1.4px solid grey;
         }
         
         .row span {
             display: inline-block;
-            padding: 10px 5px;
+            padding: 13px 5px;
         }
         
         @media screen and (max-width: 500px) {
@@ -78,10 +75,12 @@
         <h1 class='title header'>动力总成数据</h1>
         <div id="lanauage_box">
             语言：
-            <select name="" id="lanauage" onchange="changelag()">
-			<option value="中文">中文</option>
-			<option value="英文">英文</option>
-		</select>
+            <!--<select name="" id="lanauage" onchange="changelag()">-->
+            <!--<option value="中文">中文</option>
+			<option value="英文">英文</option>-->
+            <!--</select>-->
+            <input type="radio" name="lag" value="中文" class="lag" checked="">中文
+            <input type="radio" name="lag" value="英文" class="lag" checked="">英文
         </div>
 
     </header>
@@ -98,6 +97,14 @@
         function changelag(name) {
             getdata1();
         }
+        var lagradio = document.getElementsByClassName("lag");
+        console.log(lagradio);
+        for (var i = 0; i < lagradio.length; i++) {
+            lagradio[i].onclick = function() {
+                console.log(this.value);
+                getdata1();
+            }
+        }
 
         function getdata1() {
             $.ajax({
@@ -113,10 +120,8 @@
                         var val;
                         document.getElementById("listholder").innerHTML = " ";
                         var unit = "";
-                        var lagname = document.getElementById("lanauage");
-                        var sid = lagname.selectedIndex;
-                        // console.log(lagname[sid].value);
-                        if (lagname[sid].value == "英文") {
+                        var lagname = document.querySelector("#lanauage_box input:checked");
+                        if (lagname.value == "英文") {
                             for (var i = 0; i < pairs.length; i++) {
                                 val = Math.round(Math.random() * 100);
                                 if (pairs[i].unit != "") {
@@ -128,7 +133,7 @@
                                     '<span class="name">' + pairs[i].ename + '</span><span class="unit">' + unit + '</span><span>' + val + '</span>' +
                                     '</div>');
                             }
-                        } else if (lagname[sid].value == "中文") {
+                        } else if (lagname.value == "中文") {
                             for (var i = 0; i < pairs.length; i++) {
                                 val = Math.round(Math.random() * 100);
                                 if (pairs[i].unit != "") {
@@ -156,7 +161,7 @@
                 }
             });
         }
-        getdata1();
+        // getdata1();
         setInterval(getdata1, 100);
     </script>
     <!--<script type='text/javascript' src='js/picker.js' charset='utf-8'></script>-->
