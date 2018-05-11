@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="js/sm.min.css">
+    <link rel="stylesheet" href="js/sm-extend.css">
+    <style>
+        .inputstyle {
+            background-color: black;
+            width: 100%;
+            height: 112px;
+            font-size: 36px;
+            color: white;
+        }
+        
+        body {
+            background-color: black;
+            color: white;
+        }
+        
+        .header {
+            background-color: black;
+            color: white !important;
+            font-size: 42px;
+        }
+        
+        #lanauage_box {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            font-size: 18px;
+            /*padding: 10px 10px;*/
+        }
+        
+        #lanauage {
+            background: skyblue;
+            padding: 8px 10px;
+            border-radius: 10px;
+        }
+        
+        .row {
+            width: 50%;
+            height: auto;
+            margin: 0px auto;
+            border: 1px solid grey;
+        }
+        
+        .row span {
+            display: inline-block;
+            padding: 10px 5px;
+        }
+        
+        @media screen and (max-width: 500px) {
+            .row span {
+                font-size: 19px;
+            }
+        }
+        
+        @media screen and (min-width: 500px) and (max-width: 1000px) {
+            .row span {
+                font-size: 25px;
+            }
+        }
+        
+        @media screen and (min-width:1000px) and (max-width: 2000px) {
+            .row span {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bar bar-nav header">
+        <h1 class='title header'>动力总成数据</h1>
+        <div id="lanauage_box">
+            语言：
+            <select name="" id="lanauage" onchange="changelag()">
+			<option value="中文">中文</option>
+			<option value="英文">英文</option>
+		</select>
+        </div>
+
+    </header>
+    <div class="content">
+        <div id="listholder" class="content-padded grid-demo">
+        </div>
+    </div>
+    <script type='text/javascript' src='js/zepto.min.js' charset='utf-8'></script>
+    <script>
+        var debug = false;
+
+        var url = "http://192.168.173.1:8088/";
+
+        function changelag(name) {
+            getdata1();
+        }
+
+        function getdata1() {
+            $.ajax({
+                type: "get",
+                url: "./pair.json",
+                timeout: 3000,
+                success: function(json) {
+                    if (json.getdata1 == "error") {
+
+                    } else {
+                        // console.log(json);
+                        var pairs = json.pairs;
+                        var val;
+                        document.getElementById("listholder").innerHTML = " ";
+                        var unit = "";
+                        var lagname = document.getElementById("lanauage");
+                        var sid = lagname.selectedIndex;
+                        // console.log(lagname[sid].value);
+                        if (lagname[sid].value == "英文") {
+                            for (var i = 0; i < pairs.length; i++) {
+                                val = Math.round(Math.random() * 100);
+                                if (pairs[i].unit != "") {
+                                    unit = "( " + pairs[i].unit + ")=";
+                                } else {
+                                    unit = "=";
+                                }
+                                document.getElementById("listholder").innerHTML += ('<div class="row pull-left ">' +
+                                    '<span class="name">' + pairs[i].ename + '</span><span class="unit">' + unit + '</span><span>' + val + '</span>' +
+                                    '</div>');
+                            }
+                        } else if (lagname[sid].value == "中文") {
+                            for (var i = 0; i < pairs.length; i++) {
+                                val = Math.round(Math.random() * 100);
+                                if (pairs[i].unit != "") {
+                                    unit = "( " + pairs[i].unit + ")=";
+                                } else {
+                                    unit = "=";
+                                }
+                                document.getElementById("listholder").innerHTML += ('<div class="row pull-left ">' +
+                                    '<span class="name">' + pairs[i].cname + '</span><span class="unit">' + unit + '</span><span>' + val + '</span>' +
+                                    '</div>');
+                            }
+                        }
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    try {
+                        updateYBP({});
+                        if (debug)
+                            $.toast(XMLHttpRequest.status + " " + XMLHttpRequest.readyState + " " + textStatus + " " + errorThrown);
+                        else
+                            $.toast("data aquiring…… ");
+                    } catch (e) {
+                        $.toast(e);
+                    }
+                }
+            });
+        }
+        getdata1();
+        setInterval(getdata1, 100);
+    </script>
+    <!--<script type='text/javascript' src='js/picker.js' charset='utf-8'></script>-->
+    <!--/*<script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>*/-->
+    <!--<script type='text/javascript' src='js/sm-extend.js' charset='utf-8'></script>-->
+</body>
+
+</html>

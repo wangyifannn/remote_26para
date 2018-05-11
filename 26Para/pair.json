@@ -1,0 +1,154 @@
+{
+    "getdata1": true,
+    "pairs": [{
+        "id": 1,
+        "cname": "需求扭矩(期望)",
+        "ename": "EMS1_N_DriverReqTorque",
+        "unit": "Nm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "指示扭矩",
+        "ename": "EMS1_N_EngineIndTorque",
+        "unit": "Nm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "扭矩（不含TCU干预）",
+        "ename": "EMS1_N_TorquewithoutTCUReq",
+        "unit": "Nm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "损失扭矩",
+        "ename": "EMS1_N_TorqueLoss",
+        "unit": "Nm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "发动机转速",
+        "ename": "EMS3_N_EngineSpeed",
+        "unit": "rpm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "油门开度",
+        "ename": "EMS5_N_AccPedalPos",
+        "unit": "%",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "强制降档",
+        "ename": "EMS5_St_Kickdown",
+        "unit": "",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "实际扭矩",
+        "ename": "EMS7_N_EngineActTorq",
+        "unit": "Nm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "换档状态",
+        "ename": "TCM1_St_GearShift",
+        "unit": "",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "LockUp状态",
+        "ename": "TCM1_St_Lockup",
+        "unit": "",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "实际档位",
+        "ename": "TCM1_N_ActualGear",
+        "unit": "",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "挡杆信息",
+        "ename": "TCM1_N_SLP",
+        "unit": "",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "目标档位",
+        "ename": "TCM1_N_TargetGear",
+        "unit": "",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "AT油温",
+        "ename": "TCM1_N_OilTemp",
+        "unit": "℃",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "换挡模式",
+        "ename": "TCM1_st_shiftschedule",
+        "unit": "",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "扭矩限制",
+        "ename": "TCM2_N_TorqueLimit",
+        "unit": "Nm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "涡轮转速",
+        "ename": "TCM2_N_TurbineSpeed",
+        "unit": "rpm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "降扭请求",
+        "ename": "TCM2_N_TorqueRedu",
+        "unit": "Nm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "增扭请求",
+        "ename": "TCM2_N_TorqueInc",
+        "unit": "Nm",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "车速",
+        "ename": "BR1_N_VehicleSpeed",
+        "unit": "KPH",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "左前轮速",
+        "ename": "BR41_N_FLSpeed",
+        "unit": "KPH",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "右前轮速",
+        "ename": "BR41_N_FRSpeed",
+        "unit": "KPH",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "左后轮速",
+        "ename": "BR42_N_RLSpeed",
+        "unit": "KPH",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "右后轮速",
+        "ename": "BR42_N_RRSpeed",
+        "unit": "KPH",
+        "val": "Math.round(Math.random() * 100)"
+    }, {
+        "id": 1,
+        "cname": "加速度",
+        "ename": "BR5_N_longitudeAcceleration",
+        "unit": "g",
+        "val": "Math.round(Math.random() * 100)"
+    }]
+}

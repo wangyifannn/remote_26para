@@ -1,0 +1,14 @@
+{
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "js/sm.min.css",
+      "js/sm-extend.css",
+      "js/zepto.min.js",
+      "js/sm.min.js",
+      "js/sm-extend.js"
+    ],
+    "refer": [],
+    "priority": 0
+  }
+}
